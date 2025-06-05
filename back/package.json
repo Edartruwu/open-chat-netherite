@@ -1,7 +1,9 @@
 {
   "name": "back",
   "scripts": {
-    "dev": "bun run --hot src/index.ts"
+    "dev": "NODE_ENV=development && bun run --hot src/index.ts",
+    "build": "bun build --compile --minify-whitespace --minify-syntax --target bun --outfile ./bin/server ./src/index.ts",
+    "start": "export NODE_ENV=production && ./bin/server"
   },
   "dependencies": {
     "hono": "^4.7.11"
